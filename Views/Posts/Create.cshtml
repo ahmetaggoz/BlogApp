@@ -6,7 +6,7 @@
 
         
         <h1>Post Create</h1>
-        <form action="Create" method="post">
+        <form action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
                 <label asp-for="Title" class="form-label"></label>
@@ -23,11 +23,15 @@
                 <input asp-for="Url" class="form-control">
                 <span asp-validation-for="Url" class="text-danger"></span>
             </div>
+            <div class="input-group mb-3">
+                <input type="file" name="imageFile" id="imageFile" class="form-control">
+            </div>
             <div class="mb-3">
                 <label asp-for="Content" class="form-label"></label>
                 <textarea asp-for="Content" class="form-control"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
+            
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
         </div>

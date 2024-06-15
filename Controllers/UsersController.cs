@@ -30,19 +30,27 @@ public class UsersController : Controller
         return View();
     }
     [HttpPost]
-    public async Task<IActionResult> Register(RegisterViewModel model)
+    public async Task<IActionResult> Register(RegisterViewModel model, IFormFile imgFile)
     {
+        var extension = Path.GetExtension(imgFile.FileName);
+        var randomFileName = string.Format($"{Guid.NewGuid().ToString()}{extension}");
+        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", randomFileName);
         if(ModelState.IsValid)
         {
             var user = await _userRepository.Users.FirstOrDefaultAsync(u => u.Email == model.Email || u.UserName == model.UserName);
+            
             if(user == null)
             {
+                using(var stream = new FileStream(path, FileMode.Create))
+                {
+                    await imgFile.CopyToAsync(stream);
+                }
                 _userRepository.CreateUser(new Entity.User {
                     UserName = model.UserName,
                     Name = model.Name,
                     Email = model.Email,
                     Password = model.Password,
-                    Image = "avatar.png"
+                    Image = randomFileName
                 });
                 return RedirectToAction("Login");
             }else

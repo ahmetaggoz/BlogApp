@@ -73,10 +73,17 @@ public class PostsController : Controller
     }
     [HttpPost]
     [Authorize]
-    public IActionResult Create(PostCreateViewModel model)
+    public async Task<IActionResult> Create(PostCreateViewModel model, IFormFile imageFile)
     {
+        var extension = Path.GetExtension(imageFile.FileName);
+        var randomFileName = string.Format($"{Guid.NewGuid().ToString()}{extension}");
+        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", randomFileName);
         if(ModelState.IsValid)
         {
+            using(var stream = new FileStream(path, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(stream);
+            }
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             _postRepository.CreatePost(
                 new Post {
@@ -85,7 +92,7 @@ public class PostsController : Controller
                     Url = model.Url,
                     UserId = int.Parse(userId ?? ""),
                     PublishedOn = DateTime.Now,
-                    Image = "1.jpg",
+                    Image = randomFileName,
                     IsActive = false
                 }
             );
