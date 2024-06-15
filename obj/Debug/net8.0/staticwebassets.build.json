@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LHwLHJHlpPjTYQLm0RnoTd+RdWQi8JrtwHfCRqlXf8c=",
+  "Hash": "43cOWw0E9fn2/bsnrQRRUlRPGWrbZ6CcNPdEkpgWQo4=",
   "Source": "BlogApp",
   "BasePath": "_content/BlogApp",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\43c1d44c-fd7e-4f08-bd60-9b329a630266.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\ahmet\\OneDrive\\Masaüstü\\Bitirme Projem\\aspnetcore\\BlogApp\\BlogApp\\wwwroot\\img\\5ec2455f-f6ba-4a1b-95f0-30d073e0c4f1.jpeg",
+      "SourceId": "BlogApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ahmet\\OneDrive\\Masaüstü\\Bitirme Projem\\aspnetcore\\BlogApp\\BlogApp\\wwwroot\\",
+      "BasePath": "_content/BlogApp",
+      "RelativePath": "img/5ec2455f-f6ba-4a1b-95f0-30d073e0c4f1.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\5ec2455f-f6ba-4a1b-95f0-30d073e0c4f1.jpeg"
     },
     {
       "Identity": "C:\\Users\\ahmet\\OneDrive\\Masaüstü\\Bitirme Projem\\aspnetcore\\BlogApp\\BlogApp\\wwwroot\\img\\avatar.png",
